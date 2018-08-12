@@ -19,8 +19,9 @@ class TicTacToe {
         // You may set the "token" to anything that corresponds to a Glyphicon
         // icon name ('heart', 'star', 'remove-sign', 'unchecked', 'bell',
         // 'certificate', etc.)
-    this.player1 = new Player('remove-sign');
-    this.player2 = new Player('unchecked');
+        // Changed them to heart and bell because it sounds like Art Bell
+    this.player1 = new Player('heart');
+    this.player2 = new Player('bell');
 
         // TODO: Initialize several  properties that will be used to track game
         // progress.
@@ -95,7 +96,7 @@ class TicTacToe {
         for (let condition of this.winStates){
             let winningCondition = true;
             for (let position of condition){
-                if (this.gameState[position[0]][position[1]] !== this.currentPlayer.token) {
+                if (this.gameState[position[0]][position[1]] != this.currentPlayer.token) {
                     winningCondition = false;
                 }
             }
@@ -151,7 +152,7 @@ class TicTacToe {
 
         // TODO: Set the class on the `event.target` to show the player's token. The class
         // should be: `tile played glyphicon glyphicon-${this.currentPlayer.token}`.
-        event.target.setAttribute('class', `tile glyphicon glyphicon-${this.currentPlayer.token}`);
+        event.target.setAttribute('class', `tile played glyphicon glyphicon-${this.currentPlayer.token}`);
     }
     switchPlayer(){
         console.log('switching player');
@@ -293,7 +294,7 @@ class TicTacToe {
         this.currentPlayer = this.player1;
         
         // TODO: Set `this.currentPlayerToken` class equal to `glyphicon glyphicon-${this.currentPlayer.token}`
-        this.currentPlayerToken.setAttribute('class', 'glyphicon played glyphicon-${this.currentPlayer.token}');
+        this.currentPlayerToken.setAttribute('class', 'glyphicon glyphicon-${this.currentPlayer.token}');
     }
     start(){
         // This method handles the logic to create a new game. It primarily has
